@@ -1,0 +1,447 @@
+WELCOME TO SHOP 
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Title of the Document</title>
+    <link rel="stylesheet" href="products.css" />
+    <link rel="stylesheet" href="navbar.css" />
+    <script src="./product_page.js"></script>
+
+
+
+<style>
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700');
+*
+{
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+/*body
+{
+    font-family: 'Roboto', sans-serif;
+
+}*/
+body
+{   
+  font-family: Verdana, sans-serif;
+  /* background-color: rgb(248, 248, 248); */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+a
+{
+    text-decoration: none;
+}
+
+.product-card {
+    width: 380px;
+    position: relative;
+    box-shadow: 0 2px 7px #dfdfdf;
+    margin: 50px auto;
+    background: #fafafa;
+}
+
+.badge {
+    position: absolute;
+    left: 0;
+    top: 20px;
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: 700;
+    background: red;
+    color: #fff;
+    padding: 3px 10px;
+}
+
+.product-tumb {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+    padding: 50px;
+    background: #f0f0f0;
+}
+
+.product-tumb img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.product-details {
+    padding: 30px;
+}
+
+.product-catagory {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #ccc;
+    margin-bottom: 18px;
+}
+
+.product-details h4 a {
+    font-weight: 500;
+    display: block;
+    margin-bottom: 18px;
+    text-transform: uppercase;
+    color: #363636;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.product-details h4 a:hover {
+    color: #fbb72c;
+}
+
+.product-details p {
+    font-size: 15px;
+    line-height: 22px;
+    margin-bottom: 18px;
+    color: #999;
+}
+
+.product-bottom-details {
+    overflow: hidden;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+}
+
+.product-bottom-details div {
+    float: left;
+    width: 50%;
+}
+
+.product-price {
+    font-size: 18px;
+    color: #fbb72c;
+    font-weight: 600;
+}
+
+.product-price small {
+    font-size: 80%;
+    font-weight: 400;
+    text-decoration: line-through;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.product-links {
+    text-align: right;
+}
+
+.product-links a {
+    display: inline-block;
+    margin-left: 5px;
+    color: #e1e1e1;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+.product-links a:hover {
+    color: #fbb72c;
+}
+</style>
+
+
+    <script type="text/javascript">
+    	function startScript(){
+    		console.log("script started");
+    		const queryString = window.location.search;
+			console.log(queryString);
+			// ?product=troussers&color=black&newuser&size=s
+			const urlParams = new URLSearchParams(queryString);
+      const shopName = urlParams.get('shopName');
+			// const urlParams = new URLSearchParams("https://example.com/?product=troussers&color=black&newuser&size=s");
+			const id = urlParams.get('id');
+			showProducts(id,shopName);
+    	}
+    </script>
+
+
+  </head>
+  <body onload="startScript()">
+
+    
+    <div class="autocom"></div>
+    <div class="header sticky">
+        <div>
+            <a href="home.html"
+                ><img
+                src="https://cdn.freelogovectors.net/wp-content/uploads/2021/02/myntra-logo-freelogovectors.net_.png"
+                alt="logo"
+            /></a>
+        </div>
+        <div class="categories">
+            <ul>
+                <li class="dropdown-content1 dropdown-content">
+                <a href="\mens">Men</a>
+                </li>
+                <li class="dropdown-content2 dropdown-content">
+                <a href="">Women</a>
+                </li>
+                <li class="dropdown-content3 dropdown-content">
+                <a href="">Kids</a>
+                </li>
+                <li class="dropdown-content4 dropdown-content">
+                <a href="">Home & Living</a>
+                </li>
+                <li class="dropdown-content5 dropdown-content">
+                <a href="">Beauty</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Search Div -->
+        <div class="search-div">
+            <img
+            id="searchpng"
+            src="https://image.flaticon.com/icons/png/128/49/49116.png"
+            alt=""/>
+            <input
+            type="text"
+            placeholder="Search for products, brands and more"/>
+        </div>
+        <div class="nav-last">
+        <div>
+            <a href="index.html">
+            <img
+                id="svg"
+                src="location_icon.svg"
+                alt=""
+
+            />
+            </a>
+            <div>Search by Map</div>
+
+        </div>
+            <div class="dropdown-content dropdown-content6">
+                <a href="">
+                <img
+                    id="svg"
+                    src="https://www.svgrepo.com/show/198180/user-profile.svg"
+                    alt=""
+                />
+                </a>
+                <div>Profile</div>
+            </div>
+            <div>
+                <a href="#" onclick="bagPage()">
+                <img
+                    id="svg"
+                    src="https://www.svgrepo.com/show/17522/bag.svg"
+                    alt=""
+                />
+                </a>
+                <div>Bag</div>
+            </div>
+
+            <div>
+                <a href="#" onclick="wishPage()">
+                    <img
+                    id="svg"
+                    src="https://www.svgrepo.com/show/14970/heart.svg"
+                    alt=""
+                    />
+                </a>
+                <div>Wishlist</div>
+            </div>
+        </div>
+    </div>
+
+      <!-- content -->
+      <div class="content">
+        <div class="midsize" id="currentShopName">
+        
+        </div>
+
+
+        <div class="products-catalogue">
+          <div class="filter-left">
+            <div class="midsizeplus" style="padding: 20px 20px">FILTERS</div>
+            <div class="filters">
+              <div class="filter-categories">
+                <p>Brands</p>
+
+                <input
+                  type="checkbox"
+                  id="adidas"
+                  value="adidas"
+                  onclick="filter('Roadster', 'tshirt')"
+                />
+                <label for="adidas">Roadster</label><br />
+                <input
+                  type="checkbox"
+                  id="puma"
+                  value="puma"
+                  onclick="filter('Puma', 'tshirt')"
+                />
+                <label for="puma">Puma</label><br />
+                <input
+                  type="checkbox"
+                  id="HRX"
+                  value="HRX"
+                  onclick="filter('HRX', 'tshirt')"
+                />
+                <label for="HRX">HRX</label><br />
+                <input
+                  type="checkbox"
+                  id="wrogn"
+                  value="wrogn"
+                  onclick="filter('WROGN', 'tshirt')"
+                />
+                <label for="wrogn">Wrogn</label><br />
+                <input
+                  type="checkbox"
+                  id="levis"
+                  value="levis"
+                  onclick="filter('Calvin Klein Jeans', 'tshirt')"
+                />
+                <label for="levis">Calvin Klein Jeans</label><br />
+                <input
+                  type="checkbox"
+                  id="tommy"
+                  value="tommy"
+                  onclick="filter('Tommy Hilfiger', 'tshirt')"
+                />
+                <label for="tommy">Tommy Hilfiger</label><br />
+              </div>
+
+              <div class="filter-categories">
+                <p>Price</p>
+                <input
+                  type="checkbox"
+                  id="500"
+                  value="500"
+                  onclick="priceFilter(500, 0, 'tshirt')"
+                />
+                <label for="500">Below 500</label><br />
+
+                <input
+                  type="checkbox"
+                  id="1000"
+                  value="1000"
+                  onclick="priceFilter(1000, 500, 'tshirt')"
+                />
+                <label for="1000">Rs.500 to Rs.1000</label><br />
+                <input
+                  type="checkbox"
+                  id="1500"
+                  value="1500"
+                  onclick="priceFilter(1500, 1000, 'tshirt')"
+                />
+                <label for="1500">Rs.1000 to Rs.1500</label><br />
+                <input
+                  type="checkbox"
+                  id="2000"
+                  value="2000"
+                  onclick="priceFilter(2000, 1500, 'tshirt')"
+                />
+                <label for="2000">Rs.1500 to Rs.2000</label><br />
+                <input
+                  type="checkbox"
+                  id="2000+"
+                  value="2000+"
+                  onclick="priceFilter(10000, 2000, 'tshirt')"
+                />
+                <label for="2000+">Above Rs.2000</label><br />
+              </div>
+
+              <div class="filter-categories">
+                <p>Color</p>
+                <input
+                  type="checkbox"
+                  id="red"
+                  value="red"
+                  onclick="colorFilter('red', 'tshirt')"
+                />
+                <label for="red">
+                  <span class="color"></span>
+                  Red</label
+                ><br />
+
+                <input
+                  type="checkbox"
+                  id="blue"
+                  value="blue"
+                  onclick="colorFilter('blue', 'tshirt')"
+                />
+                <label for="blue"
+                  ><span class="color" style="background-color: blue"></span>
+                  Blue</label
+                ><br />
+
+                <input
+                  type="checkbox"
+                  id="green"
+                  value="green"
+                  onclick="colorFilter('green', 'tshirt')"
+                />
+                <label for="green"
+                  ><span class="color" style="background-color: green"></span>
+                  Green</label
+                ><br />
+
+                <input
+                  type="checkbox"
+                  id="yellow"
+                  value="yellow"
+                  onclick="colorFilter('yellow', 'tshirt')"
+                />
+                <label for="yellow"
+                  ><span class="color" style="background-color: yellow"></span>
+                  Yellow</label
+                ><br />
+
+                <input
+                  type="checkbox"
+                  id="black"
+                  value="black"
+                  onclick="colorFilter('black', 'tshirt')"
+                />
+                <label for="black"
+                  ><span class="color" style="background-color: black"></span>
+                  Black</label
+                ><br />
+
+                <input
+                  type="checkbox"
+                  id="white"
+                  value="white"
+                  onclick="colorFilter('white', 'tshirt')"
+                />
+                <label for="white"
+                  ><span class="color" style="background-color: white"></span>
+                  White</label
+                ><br />
+              </div>
+            </div>
+          </div>
+    <!--
+          <div class="right">
+            <div class="sort">
+              <select name="type" id="type" onChange="sort('tshirt')">
+                <option selected>Sort By</option>
+                <option value="1">Price : High to Low</option>
+                <option value="2">Price : Low to High</option>
+                <option value="3">Best Discount</option>
+                <option value="4">Popularity</option>
+              </select>
+            </div> {% endcomment %} -->
+            
+            <div id="products-right">
+              <div id="myProductList" class = "product_div_parent" >
+          
+            </div>
+          </div>
+        </div>
+      </div>
+    
+    	
+    </div>
+  </body>
+</html>
